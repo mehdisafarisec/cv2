@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>محمد مهدی صفری | رزومه SOC Analyst T1</title>
+
+<style>
+  /* ============================================================
+     فونت وزیرمتن (نسخه CDN رسمی)
+     ============================================================ */
+  @font-face{
+    font-family:'Vazirmatn';
+    font-style:normal;
+    font-weight:400;
+    font-display:block;
+    src:url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Regular.woff2') format('woff2');
+  }
+  @font-face{
+    font-family:'Vazirmatn';
+    font-style:normal;
+    font-weight:500;
+    font-display:block;
+    src:url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Medium.woff2') format('woff2');
+  }
+  @font-face{
+    font-family:'Vazirmatn';
+    font-style:normal;
+    font-weight:600;
+    font-display:block;
+    src:url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-SemiBold.woff2') format('woff2');
+  }
+  @font-face{
+    font-family:'Vazirmatn';
+    font-style:normal;
+    font-weight:700;
+    font-display:block;
+    src:url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Bold.woff2') format('woff2');
+  }
+
+  :root{
+    --accent:#4f7cff;
+    --accent-2:#7c5cff;
+    --accent-soft:#eaf0ff;
+    --text:#26303f;
+    --line:#e8eef7;
+    --card:#fbfcfe;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+
+  body{
+    font-family:'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+    font-weight:400;
+    font-feature-settings: normal;
+    font-variant-ligatures: normal;
+    font-variation-settings: normal;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background:#e8edf5;
+    background-image:radial-gradient(circle at 15% 10%, #dfe8f7 0%, transparent 45%),
+                     radial-gradient(circle at 90% 90%, #e3e9fb 0%, transparent 45%);
+    color:var(--text);
+    line-height:1.9;
+    padding:34px 16px;
+  }
+
+  /* ====== دکمه دانلود PDF ====== */
+  .download-btn{
+    position:fixed;
+    bottom:26px;
+    left:26px;
+    z-index:999;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:13px 22px;
+    border:none;
+    border-radius:99px;
+    font-family:inherit;
+    font-size:13.5px;
+    font-weight:600;
+    color:#fff;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    box-shadow:0 14px 30px -10px rgba(79,124,255,.85);
+    cursor:pointer;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .download-btn:hover{transform:translateY(-3px)}
+  .download-btn:active{transform:translateY(-1px) scale(.98)}
+  .download-btn svg{width:17px;height:17px;flex:none}
+  .download-btn[disabled]{opacity:.6;cursor:wait}
+
+  /* ====== قالب اصلی ====== */
+  .resume{
+    max-width:1040px;
+    margin:0 auto;
+    display:flex;
+    background:#fff;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 30px 70px -25px rgba(15,23,42,.35);
+  }
+
+  /* ====== ستون کناری ====== */
+  .sidebar{
+    flex:0 0 322px;
+    background:linear-gradient(165deg,#1e293b 0%,#131c2e 60%,#0f1626 100%);
+    color:#c3cfe0;
+    padding:34px 26px 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .sidebar::before{
+    content:"";
+    position:absolute; inset:0;
+    background:radial-gradient(circle at 85% 0%, rgba(79,124,255,.28), transparent 55%),
+               radial-gradient(circle at 0% 100%, rgba(124,92,255,.18), transparent 50%);
+    pointer-events:none;
+  }
+  .sidebar > *{position:relative;z-index:1}
+
+  .profile{
+    text-align:center;
+    padding-bottom:24px;
+    margin-bottom:26px;
+    border-bottom:1px solid rgba(255,255,255,.09);
+  }
+  .avatar{
+    width:94px;
+    height:94px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    overflow:hidden;
+    border:3px solid rgba(255,255,255,.14);
+    box-shadow:0 12px 26px -8px rgba(79,124,255,.85);
+  }
+  .avatar img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:center;
+    display:block;
+  }
+  .name{font-size:20px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.6}
+  .role{font-size:12px;font-weight:400;line-height:2;color:#95a8c5}
+
+  .side-block{margin-bottom:26px}
+  .side-block:last-child{margin-bottom:0}
+
+  .side-title{
+    display:flex;align-items:center;gap:9px;
+    font-size:13px;font-weight:600;color:#fff;
+    margin-bottom:14px;
+  }
+  .side-title::before{
+    content:"";
+    width:4px;height:15px;border-radius:3px;
+    background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  }
+
+  .contact li{
+    display:flex;align-items:flex-start;gap:10px;
+    font-size:12.5px;font-weight:400;color:#b9c6da;
+    padding:5px 0;
+  }
+  .contact .ico{width:18px;text-align:center;flex:none;font-size:13px;line-height:1.9}
+  .ltr{direction:ltr;unicode-bidi:embed;display:inline-block;font-size:12px}
+
+  .edu-deg{font-size:13px;font-weight:600;color:#fff;margin-bottom:5px}
+  .edu-uni{font-size:12px;font-weight:400;color:#94a7c4;line-height:1.9}
+
+  .lang-head{display:flex;justify-content:space-between;font-size:12.5px;font-weight:400;color:#b9c6da;margin-bottom:8px}
+  .bar{height:6px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden}
+  .bar span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+
+  .traits li{
+    position:relative;padding-right:20px;
+    font-size:12.5px;font-weight:400;color:#b9c6da;
+    margin-bottom:9px;line-height:1.9;
+  }
+  .traits li:last-child{margin-bottom:0}
+  .traits li::before{
+    content:"✓";position:absolute;right:0;top:0;
+    color:var(--accent);font-size:12px;font-weight:600;
+  }
+
+  /* ====== بخش اصلی ====== */
+  .main{flex:1;min-width:0;padding:40px 40px 46px}
+
+  .section + .section{
+    margin-top:30px;padding-top:30px;
+    border-top:1px solid #eff3f9;
+  }
+
+  .sec-title{
+    display:flex;align-items:center;gap:11px;
+    font-size:17px;font-weight:700;color:#182234;
+    margin-bottom:16px;line-height:1.6;
+  }
+  .sec-title::before{
+    content:"";
+    width:5px;height:22px;border-radius:3px;
+    background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  }
+
+  .summary{
+    background:linear-gradient(135deg,#f6f9ff,#fbfcfe);
+    border:1px solid #e6edfa;border-radius:16px;
+    padding:18px 20px;font-size:13px;line-height:2.15;
+    font-weight:400;
+    color:#3d4a5c;text-align:justify;
+  }
+  .summary p + p{margin-top:11px}
+
+  /* ====== کارت تجربه ====== */
+  .exp{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:20px 22px;
+    margin-bottom:16px;
+  }
+  .exp:last-child{margin-bottom:0}
+
+  .exp-head{
+    display:flex;align-items:flex-start;justify-content:space-between;
+    gap:12px;flex-wrap:wrap;margin-bottom:10px;
+  }
+  .exp-company{
+    font-size:15px;font-weight:700;color:#182234;
+    display:flex;align-items:center;gap:9px;flex-wrap:wrap;
+    line-height:1.6;
+  }
+  .exp-date{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:11.5px;font-weight:500;
+    color:#556d99;background:#eef3fb;
+    border:1px solid #dde7f7;
+    padding:3px 11px;border-radius:99px;white-space:nowrap;
+  }
+  .exp-date::before{content:"📅";font-size:11px}
+
+  .exp-meta{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:4px}
+  .link-wrap{display:inline-block;vertical-align:middle;line-height:0}
+  .exp-role{
+    display:inline-block;font-size:11.5px;font-weight:500;
+    color:var(--accent);background:var(--accent-soft);
+    border:1px solid #dbe5ff;padding:3px 12px;border-radius:99px;
+  }
+  .exp-link{
+    display:inline-block;vertical-align:middle;
+    font-size:11.5px;font-weight:600;
+    color:#2f7d5a;background:#eafaf1;
+    border:1px solid #cdeedd;
+    padding:3px 11px;border-radius:99px;
+    text-decoration:none;
+  }
+  .exp-link::before{content:"🔗";font-size:10px;margin-inline-end:6px}
+  .exp-link .ltr{font-size:11px;font-weight:600}
+
+  .bullets{list-style:none;margin-top:15px}
+  .bullets.cols{columns:2;column-gap:28px}
+  .bullets li{
+    position:relative;padding-right:16px;
+    font-size:12.5px;font-weight:400;line-height:1.95;
+    color:#4a5768;margin-bottom:5px;
+  }
+  .bullets li::before{
+    content:"";position:absolute;right:2px;top:9px;
+    width:5px;height:5px;border-radius:50%;
+    background:#9db4e8;
+  }
+
+  /* ====== مهارت‌ها ====== */
+  .skills-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+  .skill-card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:15px 17px;
+  }
+  .skill-card h4{
+    display:flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;color:#1e293b;
+    margin-bottom:11px;line-height:1.6;
+  }
+  .skill-card h4::before{
+    content:"";
+    width:7px;height:7px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 3px var(--accent-soft);
+    flex:none;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{
+    font-size:11.5px;font-weight:400;line-height:1.9;color:#41506a;
+    background:#eef2f8;border:1px solid #e0e7f1;
+    padding:2px 10px;border-radius:8px;
+  }
+
+  /* ====== نمونه‌کارها ====== */
+  .portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:14px;
+  }
+  .pf-card{
+    background:#f6f9ff;
+    border:1px solid #e3ebf9;
+    border-radius:16px;
+    padding:16px 18px;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .pf-icon{
+    width:38px;height:38px;border-radius:11px;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(140deg,var(--accent),var(--accent-2));
+    color:#fff;font-size:17px;
+  }
+  .pf-title{font-size:14px;font-weight:700;color:#182234;line-height:1.6}
+  .pf-desc{font-size:11.8px;font-weight:400;color:#5d6b80;line-height:1.9}
+  .pf-meta{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:8px;flex-wrap:wrap;
+    margin-top:auto;padding-top:8px;
+    border-top:1px dashed #e0e8f5;
+  }
+  .pf-date{font-size:11px;font-weight:500;color:#6b7a90}
+  .pf-link{
+    display:inline-block;vertical-align:middle;
+    font-size:11.5px;font-weight:600;color:var(--accent);
+    text-decoration:none;
+  }
+  .pf-link .ltr{font-size:11px}
+
+  /* ====== ریسپانسیو ====== */
+  @media (max-width:880px){
+    .resume{flex-direction:column}
+    .sidebar{flex:none;width:100%;padding:30px 24px 34px}
+    .main{padding:30px 24px 36px}
+    .skills-grid{grid-template-columns:1fr}
+    .bullets.cols{columns:1}
+    .exp-head{flex-direction:column;align-items:flex-start}
+    .download-btn{bottom:16px;left:16px;padding:11px 18px;font-size:12.5px}
+  }
+
+  @media (max-width:480px){
+    body{padding:14px 10px}
+    .resume{border-radius:16px}
+    .main{padding:24px 18px 30px}
+    .sidebar{padding:26px 18px 30px}
+    .exp{padding:16px}
+    .sec-title{font-size:15.5px}
+    .portfolio-grid{grid-template-columns:1fr}
+  }
+
+  /* ============================================================
+     ============ تنظیمات چاپ (خروجی PDF تمیز) =================
+     ============================================================ */
+  @media print{
+    @page{size:A4;margin:0}
+
+    *{
+      -webkit-print-color-adjust:exact !important;
+      print-color-adjust:exact !important;
+    }
+
+    html, body{
+      background:#fff !important;
+      background-image:none !important;
+      padding:0 !important;
+      margin:0 !important;
+      font-size:11px;
+      line-height:1.7;
+      font-weight:400;
+      font-feature-settings: normal !important;
+      font-variant-ligatures: normal !important;
+      font-kerning: normal !important;
+      font-synthesis: none !important;
+      text-rendering:optimizeLegibility !important;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .download-btn{display:none !important}
+
+    .resume{
+      display:flex !important;
+      flex-direction:row !important;
+      width:210mm !important;
+      max-width:210mm !important;
+      margin:0 !important;
+      border-radius:0 !important;
+      box-shadow:none !important;
+      overflow:visible !important;
+    }
+
+    .sidebar{
+      flex:0 0 68mm !important;
+      width:68mm !important;
+      min-height:297mm;
+      padding:12mm 7mm !important;
+      border-radius:0 !important;
+      overflow:visible !important;
+    }
+    .sidebar::before{display:none !important}
+
+    .main{
+      flex:1 1 auto !important;
+      min-width:0 !important;
+      padding:12mm 9mm !important;
+      overflow:visible !important;
+    }
+
+    .bullets.cols{columns:1 !important;column-gap:0 !important}
+
+    .summary,
+    .exp,
+    .skill-card,
+    .pf-card,
+    .side-block{
+      page-break-inside:avoid !important;
+      break-inside:avoid !important;
+    }
+
+    .sec-title,
+    .exp-company,
+    .exp-head,
+    .skill-card h4,
+    .pf-title,
+    .side-title{
+      page-break-after:avoid !important;
+      break-after:avoid !important;
+    }
+
+    .bullets li{
+      page-break-inside:avoid !important;
+      break-inside:avoid !important;
+    }
+
+    .profile{padding-bottom:14px;margin-bottom:16px}
+    .avatar{width:72px;height:72px;margin-bottom:11px;box-shadow:none !important}
+    .name{font-size:15px;font-weight:700}
+    .role{font-size:10px;line-height:1.8;font-weight:400}
+
+    .side-block{margin-bottom:16px}
+    .side-title{font-size:11px;margin-bottom:9px;font-weight:600}
+    .side-title::before{width:3px;height:12px}
+
+    .contact li{font-size:10px;padding:3px 0}
+    .contact .ico{font-size:11px}
+    .ltr{font-size:10px}
+
+    .edu-deg{font-size:11px;font-weight:600}
+    .edu-uni{font-size:10px}
+    .lang-head{font-size:10px}
+    .bar{height:5px}
+
+    .traits li{font-size:10px;margin-bottom:5px;line-height:1.7;padding-right:16px}
+    .traits li::before{font-size:10px}
+
+    .section + .section{margin-top:16px;padding-top:16px}
+    .sec-title{font-size:13.5px;margin-bottom:10px;font-weight:700}
+    .sec-title::before{width:4px;height:17px}
+
+    .summary{
+      padding:10px 13px;
+      font-size:10.5px;
+      line-height:1.9;
+      border-radius:10px;
+    }
+    .summary p + p{margin-top:6px}
+
+    .exp{
+      padding:11px 13px;
+      margin-bottom:10px;
+      border-radius:10px;
+    }
+    .exp-company{font-size:12.5px;gap:7px;font-weight:700}
+    .exp-date,.exp-role,.exp-link{
+      font-size:9.5px;
+      padding:2px 8px;
+      border-radius:99px;
+      font-weight:500;
+    }
+    .exp-link{font-weight:600}
+    .exp-date::before,.exp-link::before{font-size:9px}
+    .exp-link .ltr{font-size:9.5px;font-weight:600}
+    .exp-meta{margin-bottom:2px;gap:7px}
+
+    .bullets{margin-top:9px}
+    .bullets li{
+      font-size:10px;
+      line-height:1.7;
+      margin-bottom:2px;
+      padding-right:13px;
+      font-weight:400;
+    }
+    .bullets li::before{width:4px;height:4px;top:7px;right:1px}
+
+    .skills-grid{
+      grid-template-columns:1fr 1fr !important;
+      gap:8px !important;
+    }
+    .skill-card{padding:9px 11px;border-radius:10px}
+    .skill-card h4{font-size:11px;margin-bottom:7px;gap:6px;font-weight:600}
+    .skill-card h4::before{width:6px;height:6px;box-shadow:0 0 0 2px var(--accent-soft)}
+    .chips{gap:4px}
+    .chip{font-size:9.5px;padding:1px 7px;line-height:1.7;border-radius:6px;font-weight:400}
+
+    .portfolio-grid{
+      grid-template-columns:1fr 1fr 1fr !important;
+      gap:8px !important;
+    }
+    .pf-card{padding:10px 11px;border-radius:10px;gap:7px}
+    .pf-icon{width:30px;height:30px;font-size:14px;border-radius:9px}
+    .pf-title{font-size:11.5px;font-weight:700}
+    .pf-desc{font-size:9.5px;line-height:1.7}
+    .pf-date,.pf-link{font-size:9.5px}
+    .pf-link{font-weight:600}
+    .pf-link .ltr{font-size:9.5px}
+    .pf-meta{padding-top:6px}
+
+    .pf-card:hover,
+    .exp-link:hover,
+    .pf-link:hover,
+    .download-btn:hover{
+      transform:none !important;
+      box-shadow:none !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ دکمه دانلود PDF ============ -->
+<button id="downloadBtn" class="download-btn" onclick="printResume()" aria-label="دانلود PDF">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+       stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+  دانلود PDF
+</button>
+
+<div class="resume">
+
+  <!-- ============ ستون کناری ============ -->
+  <aside class="sidebar">
+
+    <div class="profile">
+      <div class="avatar">
+        <img src="grok_1790415721037.jpg" alt="محمد مهدی صفری">
+      </div>
+      <h1 class="name">محمد مهدی صفری</h1>
+      <p class="role">
+        SOC Analyst – Tier 1<br>
+        مانیتورینگ امنیتی | تحلیل لاگ | پاسخ به رخداد
+      </p>
+    </div>
+
+    <section class="side-block">
+      <h2 class="side-title">اطلاعات تماس</h2>
+      <ul class="contact">
+        <li><span class="ico">📍</span><span>تهران</span></li>
+        <li><span class="ico">📞</span><span>۰۹۱۹۰۶۰۳۶۳۰</span></li>
+        <li><span class="ico">✉️</span><span class="ltr">Mehdisafari.sec@gmail.com</span></li>
+        <li><span class="ico">🎂</span><span>۲۴ ساله</span></li>
+      </ul>
+    </section>
+
+    <section class="side-block">
+      <h2 class="side-title">تحصیلات</h2>
+      <p class="edu-deg">کارشناسی فناوری اطلاعات (IT)</p>
+      <p class="edu-uni">دانشگاه شهید شمسی‌پور – تهران</p>
+    </section>
+
+    <section class="side-block">
+      <h2 class="side-title">زبان</h2>
+      <div class="lang-head"><span>انگلیسی</span><span>متوسط</span></div>
+      <div class="bar"><span style="width:55%"></span></div>
+    </section>
+
+    <section class="side-block">
+      <h2 class="side-title">ویژگی‌های حرفه‌ای</h2>
+      <ul class="traits">
+        <li>آماده کار در شیفت‌های چرخشی ۲۴/۷</li>
+        <li>دقت بالا در پایش هشدارها و تشخیص مثبت کاذب</li>
+        <li>توانایی مستندسازی دقیق رخدادها و تیکت‌ها</li>
+        <li>پیگیری منظم تا رفع کامل هشدار</li>
+        <li>یادگیری سریع ابزارها و سناریوهای تهدید جدید</li>
+        <li>کار تیمی و هماهنگی با سطوح بالاتر SOC</li>
+        <li>نظم کاری، مسئولیت‌پذیری و محرمانگی اطلاعات</li>
+      </ul>
+    </section>
+
+  </aside>
+
+  <!-- ============ بخش اصلی ============ -->
+  <main class="main">
+
+    <section class="section">
+      <h2 class="sec-title">هدف شغلی</h2>
+      <div class="summary">
+        <p>
+          به دنبال موقعیت <strong>کارشناس SOC – Tier 1</strong> هستم تا با تکیه بر دانش پایه در
+          شبکه، سیستم‌عامل، امنیت وب و تحلیل لاگ، در پایش مداوم هشدارها، triage اولیه رخدادها و
+          ارجاع موارد مشکوک به سطوح بالاتر فعالیت کنم. هدف من رشد در مسیر تحلیل‌گری امنیت و
+          تبدیل شدن به یک Tier 2 Analyst در آینده است.
+        </p>
+        <p>
+          <span class="ltr">Seeking a Tier 1 SOC Analyst position where I can apply my foundational
+          knowledge of network security, log analysis and alert triage to monitor, detect and
+          escalate security events — while growing toward a Tier 2 analyst role through hands-on
+          experience in threat detection, incident response and SIEM operations.</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="sec-title">مهارت‌های اصلی SOC</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h4>Security Monitoring &amp; Alert Triage</h4>
+          <div class="chips">
+            <span class="chip">پایش داشبورد SIEM</span>
+            <span class="chip">بررسی و دسته‌بندی هشدارها</span>
+            <span class="chip">تشخیص مثبت کاذب</span>
+            <span class="chip">تعیین شدت و اولویت</span>
+            <span class="chip">Escalation به Tier 2</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h4>Log Analysis</h4>
+          <div class="chips">
+            <span class="chip">Windows Event Logs</span>
+            <span class="chip">Syslog</span>
+            <span class="chip">Web Server Logs</span>
+            <span class="chip">Firewall &amp; Proxy Logs</span>
+            <span class="chip">Auth Logs</span>
+            <span class="chip">Correlation رویدادها</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h4>SIEM Fundamentals</h4>
+          <div class="chips">
+            <span class="chip">Splunk (پایه)</span>
+            <span class="chip">ELK Stack (پایه)</span>
+            <span class="chip">Wazuh (پایه)</span>
+            <span class="chip">نوشتن Query ساده</span>
+            <span class="chip">ساخت Dashboard</span>
+            <span class="chip">Use Case پایه</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h4>Incident Response Basics</h4>
+          <div class="chips">
+            <span class="chip">چرخه IR</span>
+            <span class="chip">Identification</span>
+            <span class="chip">Containment اولیه</span>
+            <span class="chip">مستندسازی رخداد</span>
+            <span class="chip">تهیه گزارش</span>
+            <span class="chip">پیگیری تیکت</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h4>Threat Detection</h4>
+          <div class="chips">
+            <span class="chip">MITRE ATT&amp;CK (پایه)</span>
+            <span class="chip">IOC و IOA</span>
+            <span class="chip">شناسایی Brute Force</span>
+            <span class="chip">شناسایی Malware</span>
+            <span class="chip">Phishing Indicators</span>
+            <span class="chip">Suspicious Login</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h4>Network Security</h4>
+          <div class="chips">
+            <span class="chip">TCP/IP و مدل OSI</span>
+            <span class="chip">پروتکل‌های مهم شبکه</span>
+            <span class="chip">فایروال و ACL</span>
+            <span class="chip">IDS / IPS</span>
+            <span class="chip">NetFlow</span>
+            <span class="chip">تحلیل ترافیک مشکوک</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h4>Endpoint &amp; OS Security</h4>
+          <div class="chips">
+            <span class="chip">Windows Security</span>
+            <span class="chip">Linux Security</span>
+            <span class="chip">Sysmon</span>
+            <span class="chip">Antivirus / EDR (پایه)</span>
+            <span class="chip">Process &amp; Command Analysis</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h4>Security Fundamentals</h4>
+          <div class="chips">
+            <span class="chip">CIA Triad</span>
+            <span class="chip">مدیریت ریسک</span>
+            <span class="chip">رمزنگاری پایه</span>
+            <span class="chip">مدیریت آسیب‌پذیری</span>
+            <span class="chip">Hardening پایه</span>
+            <span class="chip">Patch Management</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="sec-title">ابزارها و محیط‌های کاری</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h4>SIEM / Monitoring</h4>
+          <div class="chips">
+            <span class="chip">Splunk</span>
+            <span class="chip">ELK Stack</span>
+            <span class="chip">Wazuh</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h4>Network Analysis</h4>
+          <div class="chips">
+            <span class="chip">Wireshark</span>
+            <span class="chip">tcpdump</span>
+            <span class="chip">Nmap</span>
+            <span class="chip">Netcat</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h4>Endpoint &amp; Forensics</h4>
+          <div class="chips">
+            <span class="chip">Sysmon</span>
+            <span class="chip">Windows Event Viewer</span>
+            <span class="chip">Autoruns</span>
+            <span class="chip">Process Explorer</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h4>سیستم‌عامل و زیرساخت</h4>
+          <div class="chips">
+            <span class="chip">Kali Linux</span>
+            <span class="chip">Ubuntu</span>
+            <span class="chip">Windows Server (پایه)</span>
+            <span class="chip">VirtualBox / VMware</span>
+            <span class="chip">Ticketing Systems</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="sec-title">گواهینامه‌ها و دوره‌ها</h2>
+
+      <article class="exp">
+        <div class="exp-head">
+          <h3 class="exp-company">CEH – Certified Ethical Hacker</h3>
+          <span class="exp-date">در حال یادگیری</span>
+        </div>
+        <div class="exp-meta">
+          <span class="exp-role">هنوز اخذ نشده</span>
+        </div>
+        <ul class="bullets">
+          <li>آشنایی با سرفصل‌ها و مفاهیم اصلی دوره CEH</li>
+          <li>در حال مطالعه و تمرین عملی برای آماده‌سازی آزمون</li>
+        </ul>
+      </article>
+
+      <article class="exp">
+        <div class="exp-head">
+          <h3 class="exp-company">مطالعه و تمرین خودآموز حوزه SOC</h3>
+          <span class="exp-date">در حال انجام</span>
+        </div>
+        <div class="exp-meta">
+          <span class="exp-role">Self-Study / Home Lab</span>
+        </div>
+        <ul class="bullets">
+          <li>راه‌اندازی آزمایشگاه خانگی با ماشین‌های مجازی برای تمرین مانیتورینگ</li>
+          <li>تمرین نوشتن Query و ساخت داشبورد در Wazuh و ELK</li>
+          <li>شبیه‌سازی سناریوهای حمله و تحلیل لاگ‌های تولیدشده</li>
+          <li>مطالعه چارچوب MITRE ATT&amp;CK و بررسی تکنیک‌های رایج</li>
+        </ul>
+      </article>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // اطمینان از لود کامل فونت وزیرمتن قبل از پرینت/PDF
+  function printResume(){
+    var btn = document.getElementById('downloadBtn');
+    if (btn) btn.setAttribute('disabled', 'true');
+
+    function doPrint(){
+      window.print();
+      if (btn) btn.removeAttribute('disabled');
+    }
+
+    if (document.fonts) {
+      var weights = ['400', '500', '600', '700'];
+      var loaders = weights.map(function(w){
+        return document.fonts.load(w + ' 16px Vazirmatn').catch(function(){});
+      });
+      Promise.all(loaders)
+        .then(function(){ return document.fonts.ready; })
+        .then(function(){ setTimeout(doPrint, 80); })
+        .catch(doPrint);
+    } else {
+      doPrint();
+    }
+  }
+</script>
+
+</body>
+</html>
